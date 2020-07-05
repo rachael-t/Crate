@@ -3,6 +3,9 @@ import models from '../../setup/models'
 import params from '../../config/params'
 
 // Get crate by ID
+// New function getById as the resolve for crateById. Preforms a query to
+// find the provided crateId in the psql db. If found, it will return the crate
+// object, if not, it will return an error message.
 export async function getById(parentValue, { crateId }) {
   const crate = await models.Crate.findOne({ where: { id: crateId } })
 
@@ -15,6 +18,8 @@ export async function getById(parentValue, { crateId }) {
 }
 
 // Get all crates
+// New function getAll that will return all crate objects in psql db and will
+// order by the value in the orderBy argument in the crates object
 export async function getAll(parentValue, { orderBy }) {
   return await models.Crate.findAll({ order: [['id', orderBy]] })
 }

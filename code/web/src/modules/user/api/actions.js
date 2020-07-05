@@ -34,6 +34,9 @@ export function login(userCredentials, isLoading = true) {
     })
 
     return axios.post(routeApi, query({
+      // below is calling on the userLogin object from the code/api/src/modules/user/query.js
+      // file and passing in the email, name, role, and token to authenticate.
+      // unsure where the userCredentails are coming from
       operation: 'userLogin',
       variables: userCredentials,
       fields: ['user {name, email, role}', 'token']
@@ -117,3 +120,5 @@ export function getGenders() {
     }))
   }
 }
+
+// probably will need to create new functions to updateAddress and updateDescription

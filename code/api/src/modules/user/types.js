@@ -2,6 +2,7 @@
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // User type
+// Will need to add address information here and personal description
 const UserType = new GraphQLObjectType({
   name: 'user',
   description: 'User type',

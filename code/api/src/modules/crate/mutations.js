@@ -6,6 +6,7 @@ import CrateType from './types'
 import { create, remove, update } from './resolvers'
 
 // Crate create
+// Creates a function to create a new crate. Needs a name and description
 export const crateCreate = {
   type: CrateType,
   args: {
@@ -19,6 +20,8 @@ export const crateCreate = {
       type: GraphQLString
     }
   },
+
+  // points to the create resolver to create the crate
   resolve: create
 }
 

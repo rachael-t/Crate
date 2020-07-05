@@ -77,3 +77,6 @@ export async function remove(parentValue, { id }) {
 export async function getGenders() {
   return Object.values(params.user.gender)
 }
+
+// will need an update function to update the shipping address and personal
+// description

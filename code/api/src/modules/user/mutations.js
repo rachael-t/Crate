@@ -38,3 +38,19 @@ export const userRemove = {
   },
   resolve: remove
 }
+
+// will need a userEdit mutation. Something like:
+// export const userEdit = {
+//  type: UserType,
+//  args: {
+//    id: {
+//      name: 'id'.
+//      type: GraphQLInt
+//    }
+//    address: {
+//      name: 'address',
+//      type: GraphQLString
+//    }
+//  }...,
+//  resolve: update
+// }
