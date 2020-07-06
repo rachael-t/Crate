@@ -30,6 +30,11 @@ const Profile = (props) => (
       </GridCell>
     </Grid>
 
+    //this is where the USER's profile data is shown, this is where the user will elect to edit their info
+    //those changes will then be refelcted here once the user saves their edits from the '/users/edit' path
+
+    //we will need a new component in the user dir that is the EDIT component where a user can edit their information
+
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
