@@ -5,6 +5,11 @@ import Profile from '../../modules/user/Profile'
 import Subscriptions from '../../modules/user/Subscriptions'
 
 // User routes
+
+// THESE routes: will need to be added to so that the route reflects the user's
+// actions for example edit: '/users/edit' — where the user can edit their profile
+// or products: '/users/products' — where the user can see all of their kept or returned products
+
 export default {
   login: {
     path: '/user/login',
