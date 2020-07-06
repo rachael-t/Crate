@@ -35,6 +35,10 @@ const Profile = (props) => (
 
     //we will need a new component in the user dir that is the EDIT component where a user can edit their information
 
+    //this may also be the location where a user can see their upcoming delivery and change that date with a
+    //DATE PICKER pull down - this request along with all other requests to change user profile data will be
+    //sent to the back-end
+
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
