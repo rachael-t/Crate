@@ -18,6 +18,8 @@ export const LOGOUT = 'AUTH/LOGOUT'
 //this is also where we will add an action that allows the user to update their profile avatar to an
 //image of their choosing
 
+//need to return the user's image, description, email & address associsated with the logged in user
+
 // Set a user after login or using localStorage token
 export function setUser(token, user) {
   if (token) {
