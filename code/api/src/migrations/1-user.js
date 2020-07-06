@@ -1,5 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
+    // This is creating the table on the database
     return queryInterface.createTable('users', {
       id: {
         allowNull: false,
@@ -29,7 +30,10 @@ module.exports = {
       }
     });
   },
+  // This allows us to remove the table here
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('users');
   }
 }
+
+// We'll need to add a database migration here to add on the desired attributes for the user
