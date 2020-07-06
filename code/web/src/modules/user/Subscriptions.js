@@ -82,3 +82,6 @@ function subscriptionsState(state) {
 }
 
 export default connect(subscriptionsState, { getListByUser })(Subscriptions)
+
+//need to request from back-end to display the user's delivery date for each subscription — this is also a
+//location where the delivery date can be altered by the user???
