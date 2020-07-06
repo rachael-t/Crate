@@ -14,6 +14,10 @@ export const LOGOUT = 'AUTH/LOGOUT'
 
 // Actions
 
+//this is where we will add actions that send new edited user data to the back-end
+//this is also where we will add an action that allows the user to update their profile avatar to an
+//image of their choosing
+
 // Set a user after login or using localStorage token
 export function setUser(token, user) {
   if (token) {
