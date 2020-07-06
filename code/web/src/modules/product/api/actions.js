@@ -19,6 +19,10 @@ export const PRODUCTS_GET_RELATED_LIST_FAILURE = 'PRODUCTS/GET_RELATED_LIST_FAIL
 
 // Actions
 
+// Add functionality in a function getListByUser where we can query for all subscriptions & products associated with that user's id
+// In that returned list, we can populate a MyItems component that will display all items a user has received as well as give them
+// the option to return any items that have been delivered and have not yet been returned.  
+
 // Get list of products
 export function getList(isLoading = true, forceRefresh = false) {
   return dispatch => {
