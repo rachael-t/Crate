@@ -19,6 +19,9 @@ export const PRODUCTS_GET_RELATED_LIST_FAILURE = 'PRODUCTS/GET_RELATED_LIST_FAIL
 
 // Actions
 
+//This may be where we can show just the user's products by getListByUser (like the function below)
+//this may also be where we can display the products that the user has kept or returned???
+
 // Get list of products
 export function getList(isLoading = true, forceRefresh = false) {
   return dispatch => {
