@@ -1,19 +1,19 @@
 // Imports
 import { GraphQLObjectType } from 'graphql'
 
-// App Imports
+// App Imports -- This is importing all the queries from their respective files
 import * as user from '../../modules/user/query'
 import * as product from '../../modules/product/query'
 import * as crate from '../../modules/crate/query'
 import * as subscription from '../../modules/subscription/query'
 
 // Query
-// This is telling graphql what models support queries and is importing them from their respective files. This allows the queries to justbe changed in one place
+// This is telling graphql what models support queries. This allows the queries to just be changed in one place
 const query = new GraphQLObjectType({
   name: 'query',
   description: 'API Queries [Read]',
 
-  // A shipment model would be added here
+  // For examples a shipment model would be added here
   fields: () => ({
     ...user,
     ...product,
