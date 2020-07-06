@@ -28,3 +28,6 @@ export default {
     auth: true
   }
 }
+
+// This file renders all the user components.  We will need to add in a path for Products as well as however
+// we are going to allow the user to edit their profile details, probably EditProfile.

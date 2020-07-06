@@ -8,6 +8,7 @@ import Layout from '../../modules/common/Layout'
 import NotFound from '../../modules/common/NotFound'
 import RoutePrivate from '../../modules/auth/RoutePrivate'
 
+// This is where the App is rendering.  The map will go through each of the client/routes folders and load them.
 const App = () => (
   <Layout>
     <Switch>

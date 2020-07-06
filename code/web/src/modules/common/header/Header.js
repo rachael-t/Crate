@@ -61,6 +61,7 @@ const Header = (props) => {
                 <MenuItem to={user.subscriptions.path}>Subscriptions</MenuItem>
 
                 <MenuItem to={user.profile.path}>Profile</MenuItem>
+                
               </Menu>
               :
               <Menu>
@@ -88,3 +89,7 @@ function headerState(state) {
 }
 
 export default withRouter(connect(headerState, {})(Header))
+
+// In this component we are importing the route that a user clicks which will render the path to whatever link a user clicks from MenuItem.js
+// Line 64 we will want to add another menu item for Logout (might keep this in Profile but unsure as of now)
+//
