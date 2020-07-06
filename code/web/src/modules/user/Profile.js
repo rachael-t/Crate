@@ -60,3 +60,7 @@ function profileState(state) {
 }
 
 export default connect(profileState, { logout })(Profile)
+
+// This component renders all the info associated with a User's profile
+// Need to add form with inputs for User Picture, User Description, Email Address, Shipping Address
+// Need to add subscription modification button

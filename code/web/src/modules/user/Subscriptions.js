@@ -82,3 +82,7 @@ function subscriptionsState(state) {
 }
 
 export default connect(subscriptionsState, { getListByUser })(Subscriptions)
+
+
+// Need to add ability to display expected delivery date for each subscription.
+// 

@@ -117,3 +117,8 @@ export function getGenders() {
     }))
   }
 }
+
+// Need to add functionality for a user to be able to update delivery date and display that on subscriptions componenet. 
+// Add a change delivery date field.
+// Add functionality to send query request to log user in via user details at login.  
+// Need to return image, description, email & address associated with that User ID.
