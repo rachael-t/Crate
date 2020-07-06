@@ -121,7 +121,7 @@ class Signup extends Component {
         {/* Right Content */}
         <GridCell style={{ textAlign: 'center' }}>
           <H3 font="secondary" style={{ marginBottom: '1em' }}>Create an account</H3>
-
+{/* Rachael - we discussed adding additional input field to the signup to give the user an option during this step in their process to upload a photo, add a description, and their shipping address. If this is updated, state needs to be expanded to include those properties */}
           {/* Signup Form */}
           <form onSubmit={this.onSubmit}>
             <div style={{ width: '25em', margin: '0 auto' }}>

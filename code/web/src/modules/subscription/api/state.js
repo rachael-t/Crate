@@ -61,6 +61,7 @@ const subscriptionsByUserInitialState = {
   list: []
 }
 
+// Rachael - I think this is the reducer associated with the action objects that are dispatched from the actions.js file that are relevant to the subscription updates we will be making for our track. This will take in the action object and based on the type (i.e. SUBSCRIPTIONS_GET_LIST_BY_USER_REQUEST) returns the pieces of state from the store that are related/specific to the request/change we want to make.  
 // State
 export const subscriptionsByUser = (state = subscriptionsByUserInitialState, action) => {
   switch (action.type) {

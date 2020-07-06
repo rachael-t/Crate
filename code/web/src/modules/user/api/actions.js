@@ -32,7 +32,7 @@ export function login(userCredentials, isLoading = true) {
       type: LOGIN_REQUEST,
       isLoading
     })
-
+// Rachael - I believe that this query field will need to be expanded on as we add info to the database that a user can save (photo, description, shipping address) because we will want to receive that response back whena  user logs in so that it can be saved to state/store for access when loading their Profile
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
@@ -76,6 +76,7 @@ export function loginSetUserLocalStorageAndCookie(token, user) {
   cookie.set('auth', { token, user }, { path: '/' })
 }
 
+// Rachael - if we expand on the Signup input field, this query will need to be updated for the fields in the mutation request
 // Register a user
 export function register(userDetails) {
   return dispatch => {

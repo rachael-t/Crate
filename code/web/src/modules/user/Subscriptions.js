@@ -15,6 +15,7 @@ import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
 import SubscriptionItem from '../subscription/Item'
 
+// Rachael - the Subscriptions component is a container for each SubscriptionItem that the user has subscribed to. 
 // Component
 class Subscriptions extends PureComponent {
 

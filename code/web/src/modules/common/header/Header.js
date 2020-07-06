@@ -17,6 +17,7 @@ import admin from '../../../setup/routes/admin'
 import Logo from './Logo'
 import Menu from './Menu'
 import MenuItem from './MenuItem'
+// Rachael - import logout action from user/api/actions
 
 // Component
 const Header = (props) => {
@@ -61,6 +62,7 @@ const Header = (props) => {
                 <MenuItem to={user.subscriptions.path}>Subscriptions</MenuItem>
 
                 <MenuItem to={user.profile.path}>Profile</MenuItem>
+{/* Rachael - add MenuItem for Logout - in Profile it doesn't have a path so we will need to decide how to fit that in and work with the props that MenuItem is receiving/needs */}
               </Menu>
               :
               <Menu>

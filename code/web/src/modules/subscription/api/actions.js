@@ -62,7 +62,7 @@ export function getListByUser(isLoading = true) {
       error: null,
       isLoading
     })
-
+//Rachael - Update this query field to include shipment date?
     return axios.post(routeApi, query({
       operation: 'subscriptionsByUser',
       fields: ['id', 'user { name, email }', 'crate { id, name, description }', 'createdAt']

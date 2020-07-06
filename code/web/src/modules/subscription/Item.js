@@ -14,8 +14,10 @@ import { white, grey2, black } from '../../ui/common/colors'
 // App Imports
 import { APP_URL } from '../../setup/config/env'
 import { messageShow, messageHide } from '../common/api/actions'
+// Rachael - will need add an action creator for editing shipment date and import below: 
 import { remove, getListByUser } from '../subscription/api/actions'
 
+// Rachael - render the user's subscribed crates.this could be the place where the user views when their next delivery is scheduled, and have a edit button to adjust the delivery date.
 // Component
 class Item extends PureComponent {
 
@@ -76,7 +78,7 @@ class Item extends PureComponent {
           <H4 font="secondary" style={{ color: black }}>{ crate.name }</H4>
 
           <p style={{ color: grey2, marginTop: '1em' }}>{ crate.description }</p>
-
+{/* Rachael - Add <p> for shipment date and button to edit shipment date that invokes this.onClickEditShipmentDate which will need to be defined above the render */}
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
             <Button
               theme="secondary"
