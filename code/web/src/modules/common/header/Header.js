@@ -54,6 +54,9 @@ const Header = (props) => {
             props.user.isAuthenticated
               ?
               <Menu>
+
+                // In this component we are importing the paths that will execute once a menu btn is clicked on
+
                 { props.user.details.role === 'ADMIN' && <MenuItem to={admin.dashboard.path} section="admin">Admin</MenuItem> }
 
                 <MenuItem to={crate.list.path}>Crates</MenuItem>
@@ -61,6 +64,10 @@ const Header = (props) => {
                 <MenuItem to={user.subscriptions.path}>Subscriptions</MenuItem>
 
                 <MenuItem to={user.profile.path}>Profile</MenuItem>
+
+                //We will want to add a more visible LOGOUT button here, so that the user doesn't have to search
+                //for the logout Button
+
               </Menu>
               :
               <Menu>
