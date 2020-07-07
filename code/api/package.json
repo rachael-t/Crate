@@ -13,7 +13,7 @@
     "start:prod": "npm run build:prod && npm run start:server",
     "build:prod": "babel src -s -D -d build",
     "start:server": "node build/index.js",
-    "test": "cross-env NODE_ENV=test jest --coverage --testTimeout=10000",
+    "test": "cross-env NODE_ENV=test mocha test/*.test.js",
     "pretest": "cross-env NODE_ENV=test npm run db:migrate"
   },
   "keywords": [],
@@ -25,8 +25,11 @@
     "@babel/node": "7.8.7",
     "@babel/plugin-transform-runtime": "7.9.0",
     "@babel/preset-env": "7.9.5",
+    "chai": "^4.2.0",
     "cross-env": "^7.0.2",
+    "graphql": "^14.6.0",
     "jest": "^26.1.0",
+    "mocha": "^8.0.1",
     "nodemon": "2.0.3",
     "supertest": "^4.0.2"
   },
@@ -39,7 +42,6 @@
     "dotenv": "8.2.0",
     "express": "4.17.1",
     "express-graphql": "0.9.0",
-    "graphql": "14.6.0",
     "jsonwebtoken": "8.5.1",
     "morgan": "1.10.0",
     "multer": "1.4.2",
@@ -52,10 +54,6 @@
     "testEnvironment": "node",
     "coveragePathIgnorePatterns": [
       "/node_modules"
-    ], 
-    "modulePaths": ["./src/modules",
-      "./src/setup/schema"
     ]
-
   }
 }
