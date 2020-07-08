@@ -6,6 +6,7 @@ import schema from '../src/setup/schema'
 describe("user queries", () => {
   let server;
   let newImage;
+  let newDescription;
 
   beforeAll(() => {
     server = express();
@@ -48,5 +49,15 @@ describe("user queries", () => {
     .expect(200)
 
     expect(response.body.data.userUpdate.image).toEqual(newImage) 
+  })
+
+  it('can update user description', async () => {
+    newDescription = "I love fashion"
+    const response = await request(server)
+    .post('/')
+    .send({ query: 'mutation { userUpdate(id: 2, description: I love fashion) { id description }}'})
+    .expect(200)
+
+    expect(response.body.data.userUpdate.description).toEqual(newDescription)
   })
 });
