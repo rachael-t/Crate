@@ -40,6 +40,11 @@ export const userUpdate = {
     image: {
       name: 'image',
       type: GraphQLString
+    },
+
+    description: {
+      name: 'description',
+      type: GraphQLString
     }
   },
   resolve: update
