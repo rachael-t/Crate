@@ -14,7 +14,7 @@
     "build:prod": "babel src -s -D -d build",
     "start:server": "node build/index.js",
     "test": "jest --watch --coverage",
-    "pretest": "cross-env NODE_ENV=test npm run setup:db"
+    "pretest": "cross-env NODE_ENV=test"
   },
   "keywords": [],
   "author": "",
