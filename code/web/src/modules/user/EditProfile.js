@@ -1,5 +1,5 @@
 // Imports
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
@@ -21,43 +21,57 @@ import { APP_URL } from '../../setup/config/env'
 import { logout } from './api/actions'
 
 // Component
-const EditProfile = (props) => (
-  <div>
-    {/* SEO */}
-    <Helmet>
-      <title>Edit Profile </title>
-    </Helmet>
+class EditProfile extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      image: '',
+      description: '',
+      email: '',
+      address: ''
+    }
+  }
 
-    {/* Top title bar */}
-    <Grid style={{ backgroundColor: grey }}>
-      <GridCell style={{ padding: '2em', textAlign: 'center' }}>
-        <H3 font="secondary">Edit my profile</H3>
-      </GridCell>
-    </Grid>
+  render() {
+    return(
+      <div>
+        {/* SEO */}
+        <Helmet>
+          <title>Edit Profile </title>
+        </Helmet>
 
-    <Grid>
-      <GridCell justifyCenter={true} style={{ padding: '2em', textAlign: 'center'}}>
+        {/* Top title bar */}
+        <Grid style={{ backgroundColor: grey }}>
+          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
+            <H3 font="secondary">Edit my profile</H3>
+          </GridCell>
+        </Grid>
 
-        <ImageTile width={300} height={530} shadow={level1} image={`${ APP_URL }/images/stock/men/1.jpg`} />
-        <form>
-          <input type="file"></input>
-          <Button theme="secondary" style={{ marginBottom: '4em', marginTop: '4em' }}>Upload Profile Image</Button>
-        </form>
+        <Grid>
+          <GridCell justifyCenter={true} style={{ padding: '2em', textAlign: 'center'}}>
 
-        <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
+            <ImageTile width={300} height={530} shadow={level1} image={`${ APP_URL }/images/stock/men/1.jpg`} />
+            <form>
+              <input type="file"></input>
+              <Button theme="secondary" style={{ marginBottom: '4em', marginTop: '4em' }}>Upload Profile Image</Button>
+            </form>
 
-        <form>
-          <input value={props.user.details.email}></input>
-        </form>
+            <H4 style={{ marginBottom: '0.5em' }}>{this.props.user.details.name}</H4>
 
-        <Link to={userRoutes.profile.path}>
-          <Button theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
-        </Link>
+            <form>
+              <input value={this.props.user.details.email}></input>
+            </form>
 
-      </GridCell>
-    </Grid>
-  </div>
-)
+            <Link to={userRoutes.profile.path}>
+              <Button theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
+            </Link>
+
+          </GridCell>
+        </Grid>
+      </div>
+    )
+  }
+}
 
 // Component Properties
 // EditProfile.propTypes = {
