@@ -61,12 +61,12 @@ export async function login(parentValue, { email, password }) {
 // Update user info
 export async function update(parentValue, { id, image }) {
   await models.User.update(
-    {
+    { 
       image
     },
     { where: { id } }
   )
-  return models.User.findOne({ where: { id } })
+  return getById(parentValue, { id })
 }
 
 // Get by ID
