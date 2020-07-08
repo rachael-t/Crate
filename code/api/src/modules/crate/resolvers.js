@@ -15,8 +15,8 @@ export async function getById(parentValue, { crateId }) {
 }
 
 // Get all crates
-export async function getAll(parentValue, { orderBy }) {
-  return await models.Crate.findAll({ order: [['id', orderBy]] })
+export async function getAll() {
+  return await models.Crate.findAll()
 }
 
 // Create crate
