@@ -39,10 +39,16 @@ const EditProfile = (props) => (
       <GridCell justifyCenter={true} style={{ padding: '2em', textAlign: 'center'}}>
 
         <ImageTile width={300} height={530} shadow={level1} image={`${ APP_URL }/images/stock/men/1.jpg`} />
+        <form>
+          <input type="file"></input>
+          <Button theme="secondary" style={{ marginBottom: '4em', marginTop: '4em' }}>Upload Profile Image</Button>
+        </form>
 
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
 
-        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
+        <form>
+          <input value={props.user.details.email}></input>
+        </form>
 
         <Link to={userRoutes.profile.path}>
           <Button theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
