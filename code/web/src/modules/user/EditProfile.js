@@ -26,6 +26,7 @@ class EditProfile extends Component {
     super(props)
     this.state = {
       user: {
+        name: this.props.user.name,
         image: this.props.user.details.image,
         description: this.props.user.details.description,
         email: this.props.user.details.email,
