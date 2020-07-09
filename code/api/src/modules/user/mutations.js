@@ -41,9 +41,29 @@ export const userUpdate = {
       name: 'image',
       type: GraphQLString
     },
-    
+
     description: {
       name: 'description',
+      type: GraphQLString
+    },
+
+    address: {
+      name: 'address',
+      type: GraphQLString
+    },
+
+    state: {
+      name: 'state',
+      type: GraphQLString
+    },
+
+    city: {
+      name: 'city',
+      type: GraphQLString
+    },
+
+    zip: {
+      name: 'zip',
       type: GraphQLString
     }
   },
