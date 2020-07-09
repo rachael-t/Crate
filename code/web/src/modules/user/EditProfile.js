@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
@@ -14,6 +15,7 @@ import ImageTile from '../../ui/image/Tile'
 import { level1 } from '../../ui/common/shadows'
 
 // App Imports
+import userRoutes from '../../setup/routes/user'
 import { routeImage } from '../../setup/routes'
 import { upload, messageShow, messageHide } from '../common/api/actions.js'
 import { updateUserProfile } from './api/actions'
@@ -35,10 +37,12 @@ class EditProfile extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    console.log('we have submitted')
+
     this.props.updateUserProfile(this.state.user)
     .then(response => console.log(response))
-    console.log('action should have ran')
+
+    this.props.history.push(userRoutes.profile.path)
+
   }
 
   onUpload = (e) => {
@@ -92,9 +96,7 @@ class EditProfile extends Component {
 
               <input value={this.props.user.details.email}></input>
 
-              {/* <Link to={userRoutes.profile.path}> */}
                 <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
-              {/* </Link> */}
             </form>
 
           </GridCell>
@@ -119,4 +121,4 @@ function profileState(state) {
 }
 
 // Update the function name and any action creators that are imported/used
-export default connect(profileState, { upload, updateUserProfile })(EditProfile)
+export default withRouter(connect(profileState, { upload, updateUserProfile })(EditProfile))
