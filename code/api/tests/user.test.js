@@ -38,7 +38,7 @@ describe("user queries", () => {
     expect(response.body.data.user.role).toEqual('ADMIN')
     expect(response.body.data.user.id).toEqual(1)
     expect(response.body.data.user.email).toEqual('admin@crate.com')
-    expect(response.body.data.user.image).toEqual('https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=939&q=80')
+    expect(response.body.data.user.image).toEqual('https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80')
   });
 
   it('can update user image', async () => {
@@ -73,5 +73,14 @@ describe("user queries", () => {
     expect(response.body.data.userUpdate.city).toEqual("Irvine")
     expect(response.body.data.userUpdate.state).toEqual("CA")
     expect(response.body.data.userUpdate.zip).toEqual("92602")
+  })
+
+  it('can update email address', async () => {
+    const response = await request(server)
+    .post('/')
+    .send({ query: 'mutation { userUpdate(id: 2, email: "zach@crate.com") { id email } }' })
+    .expect(200)
+
+    expect(response.body.data.userUpdate.email).toEqual('zach@crate.com')
   })
 });

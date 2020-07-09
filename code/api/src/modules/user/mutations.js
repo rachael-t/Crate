@@ -65,6 +65,11 @@ export const userUpdate = {
     zip: {
       name: 'zip',
       type: GraphQLString
+    },
+
+    email: {
+      name: 'email',
+      type: GraphQLString
     }
   },
   resolve: update
