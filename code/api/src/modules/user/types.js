@@ -18,6 +18,7 @@ const UserType = new GraphQLObjectType({
     state: { type: GraphQLString},
     city: { type: GraphQLString},
     zip: { type: GraphQLString},
+    email: { type: GraphQLString },
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
   })
