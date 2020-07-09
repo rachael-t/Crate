@@ -14,11 +14,9 @@ import ImageTile from '../../ui/image/Tile'
 import { level1 } from '../../ui/common/shadows'
 
 // App Imports
-import userRoutes from '../../setup/routes/user'
-import { APP_URL } from '../../setup/config/env'
+import { routeImage } from '../../setup/routes'
 import { upload, messageShow, messageHide } from '../common/api/actions.js'
-//Instead of importing Logout, we are going to import our action creator for updating user profile
-import { logout } from './api/actions'
+import { updateUserProfile } from './api/actions'
 
 // Component
 class EditProfile extends Component {
@@ -26,12 +24,21 @@ class EditProfile extends Component {
     super(props)
     this.state = {
       user: {
-        image: '',
-        description: '',
-        email: '',
-        address: ''
+        image: this.props.user.details.image,
+        description: this.props.user.details.description,
+        email: this.props.user.details.email,
+        address: this.props.user.details.address,
+        id: this.props.user.details.id
       }
     }
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log('we have submitted')
+    this.props.updateUserProfile(this.state.user)
+    .then(response => console.log(response))
+    console.log('action should have ran')
   }
 
   onUpload = (e) => {
@@ -76,19 +83,18 @@ class EditProfile extends Component {
 
         <Grid>
           <GridCell justifyCenter={true} style={{ padding: '2em', textAlign: 'center'}}>
-            {/* look at CreateOrEdit line 318 to update this image */}
-            <ImageTile width={300} height={530} shadow={level1} image={`${ APP_URL }/images/stock/men/1.jpg`} />
+            <ImageTile width={300} height={530} shadow={level1} image={routeImage + this.state.user.image} />
 
             <H4 style={{ marginBottom: '0.5em' }}>{this.props.user.details.name}</H4>
 
-            <form onSubmit={this.onSubmit}>
+            <form>
               <input type="file" onChange={this.onUpload}></input>
 
               <input value={this.props.user.details.email}></input>
 
-              <Link to={userRoutes.profile.path}>
-                <Button type="submit" theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
-              </Link>
+              {/* <Link to={userRoutes.profile.path}> */}
+                <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
+              {/* </Link> */}
             </form>
 
           </GridCell>
@@ -113,4 +119,4 @@ function profileState(state) {
 }
 
 // Update the function name and any action creators that are imported/used
-export default connect(profileState, { upload })(EditProfile)
+export default connect(profileState, { upload, updateUserProfile })(EditProfile)
