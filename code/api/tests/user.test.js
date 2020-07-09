@@ -76,7 +76,7 @@ describe("user queries", () => {
   })
 
   it('can update email address', async () => {
-    const repsonse = await request(server)
+    const response = await request(server)
     .post('/')
     .send({ query: 'mutation { userUpdate(id: 2, email: "zach@crate.com") { id email } }' })
     .expect(200)
