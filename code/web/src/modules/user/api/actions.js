@@ -36,7 +36,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role, description}', 'token']
+      fields: ['user {name, email, role, image, id}', 'token']
     }))
       .then(response => {
         let error = ''
@@ -114,6 +114,18 @@ export function getGenders() {
     return axios.post(routeApi, query({
       operation: 'userGenders',
       fields: ['id', 'name']
+    }))
+  }
+}
+
+// Update user profile
+export function updateUserProfile(updatedProfile) {
+  console.log('we are in the action creator')
+  return dispatch => {
+    return axios.post(routeApi, mutation({
+      operation: 'userUpdate',
+      variables: { id: updatedProfile.id, image: updatedProfile.image },
+      fields: ['id']
     }))
   }
 }
