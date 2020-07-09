@@ -119,13 +119,20 @@ export function getGenders() {
 }
 
 // Update user profile
-export function updateUserProfile(updatedProfile) {
-  console.log('we are in the action creator')
+export function updateUserProfile(user) {
   return dispatch => {
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
-      variables: { id: updatedProfile.id, image: updatedProfile.image },
+      variables: { id: user.id, image: user.image },
       fields: ['id']
     }))
+      .then(response => {
+        if(response.status === 200) {
+          dispatch({
+            type: SET_USER,
+            user
+          })
+        }
+      })
   }
 }
