@@ -6,6 +6,7 @@ import schema from '../src/setup/schema'
 describe("user queries", () => {
   let server;
   let newImage;
+  let newDescription;
 
   beforeAll(() => {
     server = express();
@@ -42,11 +43,23 @@ describe("user queries", () => {
 
   it('can update user image', async () => {
     newImage = 'https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80'
+    
     const response = await request(server)
     .post('/')
     .send({ query: `mutation { userUpdate(id: 2, image: "https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80") { id image } }`})
     .expect(200)
-
+    console.log(response.body.data)
     expect(response.body.data.userUpdate.image).toEqual(newImage) 
+  })
+
+  it('can update user description', async () => {
+    newDescription = "I love fashion"
+
+    const response = await request(server)
+    .post('/')
+    .send({ query: 'mutation { userUpdate(id: 2, description: "I love fashion") { id description } }'})
+    .expect(200)
+
+    expect(response.body.data.userUpdate.description).toEqual(newDescription) 
   })
 });
