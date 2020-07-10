@@ -13,12 +13,14 @@ import Button from '../../ui/button'
 import { grey } from '../../ui/common/colors'
 import ImageTile from '../../ui/image/Tile'
 import { level1 } from '../../ui/common/shadows'
+import { Input, Textarea, Select } from '../../ui/input'
 
 // App Imports
 import userRoutes from '../../setup/routes/user'
 import { routeImage } from '../../setup/routes'
 import { upload, messageShow, messageHide } from '../common/api/actions.js'
 import { updateUserProfile } from './api/actions'
+import { slug } from '../../setup/helpers'
 
 // Component
 class EditProfile extends Component {
@@ -71,7 +73,18 @@ class EditProfile extends Component {
       
   }
 
+  onChange = (e) => {
+    let user = this.state.user
+    user[e.target.name] = e.target.value
+    console.log('bananas')
+
+    this.setState({
+      user
+    })
+  }
+
   render() {
+  
     return(
       <div>
         {/* SEO */}
@@ -94,10 +107,19 @@ class EditProfile extends Component {
 
             <form>
               <input type="file" onChange={this.onUpload}></input>
-
               <input value={this.props.user.details.email}></input>
-
-                <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
+              <label for="description">Enter your User Description:</label>
+              {/* <textarea onChange={this.onChange} name="description" id="description" value={this.props.user.details.description} rows="4" cols="50"></textarea> */}
+              <Textarea
+                    fullWidth={true}
+                    placeholder="Description"
+                    required="required"
+                    name="description"
+                    value={this.state.user.description}
+                    onChange={this.onChange}
+                    style={{ marginTop: '1em' }}
+                  />
+              <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
             </form>
 
           </GridCell>
