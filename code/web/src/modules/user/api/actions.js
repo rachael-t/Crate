@@ -123,7 +123,7 @@ export function updateUserProfile(user) {
   return dispatch => {
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
-      variables: { id: user.id, image: user.image, description: user.description },
+      variables: { id: user.id, image: user.image, description: user.description, email: user.email },
       fields: ['id']
     }))
       .then(response => {

@@ -70,7 +70,7 @@ class EditProfile extends Component {
       })
       // Need to add in messageShow for error once that's figured out
       .catch(error => console.log(error))
-      
+
   }
 
   onChange = (e) => {
@@ -84,7 +84,7 @@ class EditProfile extends Component {
   }
 
   render() {
-  
+
     return(
       <div>
         {/* SEO */}
@@ -107,18 +107,25 @@ class EditProfile extends Component {
 
             <form>
               <input type="file" onChange={this.onUpload}></input>
-              <input value={this.props.user.details.email}></input>
+              <Input
+                type="text"
+                fullWidth={true}
+                required="required"
+                name="email"
+                autoComplete="off"
+                value={this.state.user.email}
+                onChange={this.onChange}
+              />
               <label for="description">Enter your User Description:</label>
-              {/* <textarea onChange={this.onChange} name="description" id="description" value={this.props.user.details.description} rows="4" cols="50"></textarea> */}
-              <Textarea
-                    fullWidth={true}
-                    placeholder="Description"
-                    required="required"
-                    name="description"
-                    value={this.state.user.description}
-                    onChange={this.onChange}
-                    style={{ marginTop: '1em' }}
-                  />
+                <Textarea
+                  fullWidth={true}
+                  placeholder="Description"
+                  required="required"
+                  name="description"
+                  value={this.state.user.description}
+                  onChange={this.onChange}
+                  style={{ marginTop: '1em' }}
+                />
               <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
             </form>
 
