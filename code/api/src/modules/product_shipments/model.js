@@ -10,7 +10,8 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.INTEGER
     },
     returned: {
-      type: DataTypes.BOOLEAN
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   })
 
