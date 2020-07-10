@@ -8,6 +8,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     shipmentId: {
       type: DataTypes.INTEGER
+    },
+    returned: {
+      type: DataTypes.BOOLEAN
     }
   })
 
