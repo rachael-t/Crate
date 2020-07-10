@@ -79,7 +79,6 @@ class EditProfile extends Component {
   onChange = (e) => {
     let user = this.state.user
     user[e.target.name] = e.target.value
-    console.log('bananas')
 
     this.setState({
       user
@@ -97,7 +96,7 @@ class EditProfile extends Component {
 
   render() {
 
-    return(
+    return (
       <div>
         {/* SEO */}
         <Helmet>
@@ -106,46 +105,100 @@ class EditProfile extends Component {
 
         {/* Top title bar */}
         <Grid style={{ backgroundColor: grey }}>
-          <GridCell style={{ padding: '2em', textAlign: 'center' }}>
-            <H3 font="secondary">Edit my profile</H3>
+          <GridCell style={{ padding: "2em", textAlign: "center" }}>
+            <H3 font="secondary">Edit My Profile</H3>
           </GridCell>
         </Grid>
 
         <Grid>
-          <GridCell justifyCenter={true} style={{ padding: '2em', textAlign: 'center'}}>
-            <ImageTile width={300} height={530} shadow={level1} image={routeImage + this.state.user.image} />
+          <GridCell
+            justifyCenter={true}
+            style={{ padding: "2em", textAlign: "center" }}
+          >
+            <ImageTile
+              width={300}
+              height={530}
+              shadow={level1}
+              image={routeImage + this.state.user.image}
+            />
 
-            <H4 style={{ marginBottom: '0.5em' }}>{this.props.user.details.name}</H4>
+            <H4 style={{ marginBottom: "0.5em" }}>
+              {this.props.user.details.name}
+            </H4>
 
             <form>
+              {/* Image Upload Input */}
               <input type="file" onChange={this.onUpload}></input>
+              {/* User Email Input*/}
               <Input
                 type="text"
-                fullWidth={true}
                 required="required"
                 name="email"
+                placeholder="email"
                 autoComplete="off"
                 value={this.state.user.email}
                 onChange={this.onChange}
               />
-              <label for="description">Enter your User Description:</label>
-                <Textarea
-                  fullWidth={true}
-                  placeholder="Description"
-                  required="required"
-                  name="description"
-                  value={this.state.user.description}
-                  onChange={this.onChange}
-                  style={{ marginTop: '1em' }}
-                />
-                
-              <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
+              {/* User Description Input Area */}
+              <label for="description">Tell Us About Yourself:</label>
+              <Textarea
+                placeholder="Description"
+                required="required"
+                name="description"
+                value={this.state.user.description}
+                onChange={this.onChange}
+                style={{ marginTop: "1em" }}
+              />
+            {/* Shipping Address Input Fields */}
+              <label for="shipping">Enter Your Shipping Address:</label>
+              <Input
+                type="text"
+                required="required"
+                name="address"
+                placeholder="Address"
+                autoComplete="off"
+                value={this.state.user.address}
+                onChange={this.onChange}
+              />
+              <Input
+                type="text"
+                required="required"
+                name="city"
+                placeholder="City"
+                autoComplete="off"
+                value={this.state.user.city}
+                onChange={this.onChange}
+              />
+              <Input
+                type="text"
+                required="required"
+                name="state"
+                placeholder="State"
+                autoComplete="off"
+                value={this.state.user.state}
+                onChange={this.onChange}
+              />
+              <Input
+                type="text"
+                required="required"
+                name="zip"
+                placeholder="Zip"
+                autoComplete="off"
+                value={this.state.user.zip}
+                onChange={this.onChange}
+              />
+              <Button
+                onClick={this.onSubmit}
+                theme="primary"
+                style={{ marginLeft: "1em" }}
+              >
+                Save
+              </Button>
             </form>
-
           </GridCell>
         </Grid>
       </div>
-    )
+    );
   }
 }
 
