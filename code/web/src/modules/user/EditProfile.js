@@ -73,7 +73,17 @@ class EditProfile extends Component {
       })
       // Need to add in messageShow for error once that's figured out
       .catch(error => console.log(error))
-      
+
+  }
+
+  onChange = (e) => {
+    let user = this.state.user
+    user[e.target.name] = e.target.value
+    console.log('bananas')
+
+    this.setState({
+      user
+    })
   }
 
   onChange = (e) => {
@@ -86,7 +96,7 @@ class EditProfile extends Component {
   }
 
   render() {
-  
+
     return(
       <div>
         {/* SEO */}
@@ -110,61 +120,24 @@ class EditProfile extends Component {
             <form>
               <input type="file" onChange={this.onUpload}></input>
               <Input
-                    type="text"
-                    placeholder="email"
-                    required="required"
-                    name="email"
-                    autoComplete="off"
-                    value={this.state.user.email}
-                    onChange={this.onChange}
-                  />
+                type="text"
+                fullWidth={true}
+                required="required"
+                name="email"
+                autoComplete="off"
+                value={this.state.user.email}
+                onChange={this.onChange}
+              />
               <label for="description">Enter your User Description:</label>
-              <Textarea
-                    fullWidth={true}
-                    placeholder="Description"
-                    required="required"
-                    name="description"
-                    value={this.state.user.description}
-                    onChange={this.onChange}
-                    style={{ marginTop: '1em' }}
-                  />
-              <label for="address">Enter your Shipping Address:</label>
-              <Input
-                    type="text"
-                    placeholder="Street Address"
-                    required="required"
-                    name="address"
-                    value={this.state.user.address}
-                    onChange={this.onChange}
-                    style={{ marginTop: '1em' }}
-                  />
-              <Input
-                    type="text"
-                    placeholder="City"
-                    required="required"
-                    name="city"
-                    value={this.state.user.city}
-                    onChange={this.onChange}
-                    style={{ marginTop: '1em' }}
-                  />
-              <Input
-                    type="text"
-                    placeholder="State"
-                    required="required"
-                    name="state"
-                    value={this.state.user.state}
-                    onChange={this.onChange}
-                    style={{ marginTop: '1em' }}
-                  />
-              <Input
-                    type="text"
-                    placeholder="Zip Code"
-                    required="required"
-                    name="zip"
-                    value={this.state.user.zip}
-                    onChange={this.onChange}
-                    style={{ marginTop: '1em' }}
-                  />
+                <Textarea
+                  fullWidth={true}
+                  placeholder="Description"
+                  required="required"
+                  name="description"
+                  value={this.state.user.description}
+                  onChange={this.onChange}
+                  style={{ marginTop: '1em' }}
+                />
                 
               <Button onClick={this.onSubmit} theme="primary" style={{ marginLeft: '1em' }}>Save</Button>
             </form>

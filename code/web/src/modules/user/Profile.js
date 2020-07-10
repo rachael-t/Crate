@@ -36,7 +36,8 @@ const Profile = (props) => (
     <Grid>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H4 style={{ marginBottom: '0.5em' }}>{props.user.details.name}</H4>
-
+        <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.description}</p>
+        
         <p style={{ color: grey2, marginBottom: '2em' }}>{props.user.details.email}</p>
 
         <ImageTile width={300} height={530} shadow={level1} image={routeImage + props.user.details.image} />

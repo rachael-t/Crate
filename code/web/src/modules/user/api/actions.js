@@ -36,7 +36,7 @@ export function login(userCredentials, isLoading = true) {
     return axios.post(routeApi, query({
       operation: 'userLogin',
       variables: userCredentials,
-      fields: ['user {name, email, role, image, id}', 'token']
+      fields: ['user {name, email, role, image, id, description}', 'token']
     }))
       .then(response => {
         let error = ''
@@ -123,7 +123,7 @@ export function updateUserProfile(user) {
   return dispatch => {
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
-      variables: { id: user.id, image: user.image },
+      variables: { id: user.id, image: user.image, description: user.description, email: user.email },
       fields: ['id']
     }))
       .then(response => {
