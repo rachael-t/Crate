@@ -3,7 +3,7 @@ import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 
 // App Imports
 import { UserType } from '../user/types'
-import CrateType from '../crate/types'
+import SubscriptionType from '../subscription/types'
 
 // Shipment type
 const ShipmentType = new GraphQLObjectType({
@@ -13,7 +13,7 @@ const ShipmentType = new GraphQLObjectType({
   fields: () => ({
     id: { type: GraphQLInt },
     user: { type: UserType },
-    crate: { type: CrateType },
+    subscription: { type: SubscriptionType },
     deliveryDate: { type: GraphQLString},
     createdAt: { type: GraphQLString },
     updatedAt: { type: GraphQLString }
