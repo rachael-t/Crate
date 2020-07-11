@@ -17,10 +17,10 @@ module.exports = {
         },
         allowNull: false
       },
-      crateId: {
+      subscriptionId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'crates',
+          model: 'subscriptions',
           key: 'id'
         },
         allowNull: false
