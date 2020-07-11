@@ -1,31 +1,31 @@
 // Imports
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom'
 
 // UI Imports
 import { Grid, GridCell } from '../../ui/grid'
 import { H3 } from '../../ui/typography'
 import Button from '../../ui/button'
-import Icon from '../../ui/icon'
-import { white, black, grey, grey2 } from '../../ui/common/colors'
+import { grey } from '../../ui/common/colors'
 
 // App Imports
-import userRoutes from '../../setup/routes/user'
-import { getList as getProductList } from '../product/api/actions'
 import Loading from '../common/Loading'
 import EmptyMessage from '../common/EmptyMessage'
 import { routeImage } from "../../setup/routes"
+// This would be updated to a different action creator to pull the products specific to the user:
+import { getList as getProductList } from '../product/api/actions'
 
 // Component
 class Products extends Component {
 
+    // This would be updated to a different action creator to pull the products specific to the user
     static fetchData({ store }) {
         return store.dispatch(getProductList())
       }
-  
+
+    // This would be updated to a different action creator to pull the products specific to the user
     componentDidMount() {
         this.props.getProductList()
       }
@@ -126,12 +126,12 @@ class Products extends Component {
 }
 
 // Component Properties
-// Product.propTypes = {
-//   
-// }
+Products.propTypes = {
+    user: PropTypes.object.isRequired,
+    products: PropTypes.object.isRequired
+}
 
 // Component State
-// This function will need to be renamed
 function userProductsState(state) {
   return {
     user: state.user,
@@ -139,5 +139,4 @@ function userProductsState(state) {
   }
 }
 
-// Update the function name and any action creators that are imported/used
 export default connect(userProductsState, { getProductList })(Products)
