@@ -1,6 +1,6 @@
 'use strict'
 
-// Subscription
+// Shipments
 module.exports = function(sequelize, DataTypes) {
   let Shipment = sequelize.define('shipments', {
     userId: {

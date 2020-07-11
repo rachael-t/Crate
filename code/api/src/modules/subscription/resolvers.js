@@ -54,6 +54,7 @@ export async function create(parentValue, { crateId }, { auth }) {
 // Delete subscription
 export async function remove(parentValue, { id }, { auth }) {
   if(auth.user && auth.user.id > 0) {
+    await models.Shipment.destroy({where: { subscriptionId: id, userId: auth.user.id}})
     return await models.Subscription.destroy({where: {id, userId: auth.user.id}})
   } else {
     throw new Error('Access denied.')
