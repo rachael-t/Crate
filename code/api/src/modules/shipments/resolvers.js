@@ -4,6 +4,7 @@ import params from '../../config/params'
 
 // Get all shipments
 export async function getByUser(parentValue, { userId }) {
+  if (auth.user && auth.user.id > 0) {
     return await models.Shipment.findAll({
       where: {
         userId: userId
@@ -13,7 +14,10 @@ export async function getByUser(parentValue, { userId }) {
         { model: models.Product, as: 'products' }
       ]
     })
-  } 
+  } else {
+    throw new Error('Please login to subscribe to this crate.')
+  }
+} 
 
 // Create shipment
 export async function create(parentValue, { subscriptionId }, { auth }) {
@@ -31,11 +35,11 @@ export async function create(parentValue, { subscriptionId }, { auth }) {
 // Update DeliveryDate
 export async function update(parentValue, { id, deliveryDate }, { auth }) {
   if(auth.user && auth.user.id > 0) {
-    return await models.Shipment.update(
+    await models.Shipment.update(
       {
         deliveryDate
       },
-      { where: { id }}
+      { where: { id } }
     )
     return getById(parentValue, { id })
   }
