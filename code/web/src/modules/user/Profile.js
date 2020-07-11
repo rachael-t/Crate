@@ -34,45 +34,52 @@ const Profile = (props) => (
     </Grid>
 
     <Grid>
-      <GridCell style={{ padding: "2em", textAlign: "center" }}>
-        <H4 style={{ marginBottom: "0.5em" }}>{props.user.details.name}</H4>
-        <p style={{ color: grey2, marginBottom: "2em" }}>
-          {props.user.details.description}
-        </p>
-
-        <p style={{ color: grey2, marginBottom: "2em" }}>
-          {props.user.details.email}
-        </p>
-
-        <p style={{ color: grey2, marginBottom: "2em" }}>
-          Shipping Address:
-          {`${props.user.details.address} ${props.user.details.city}, ${props.user.details.state} ${props.user.details.zip}`}
-        </p>
-
+      <GridCell 
+        justifyCenter={true}
+        style={{ padding: "2em", textAlign: "center", display: "flex", justifyContent: "center"}}
+      >
         <ImageTile
           width={300}
           height={530}
-          shadow={level1}
           image={routeImage + props.user.details.image}
+          style={{backgroundRepeat:"no-repeat", display: "flex", alignSelf: "center"}}
         />
 
-        <Link to={userRoutes.subscriptions.path}>
-          <Button theme="primary">Subscriptions</Button>
-        </Link>
+        <div style={{marginLeft: "3em", width: "50%"}}>
+          <H4 style={{ marginBottom: "0.5em" }}>{props.user.details.name}</H4>
+          <p style={{ color: "grey2", marginBottom: "2em" }}>
+            {props.user.details.description}
+          </p>
 
-        <Link to={userRoutes.edit.path}>
-          <Button theme="primary" style={{ marginLeft: "1em" }}>
-            Edit Profile
+          <p style={{ color: grey2, marginBottom: "2em" }}>
+            {props.user.details.email}
+          </p>
+
+          <p style={{ color: grey2, marginBottom: "2em" }}>
+            Shipping Address:<br/>
+            {`${props.user.details.address}`}<br/>{`${props.user.details.city}, ${props.user.details.state} ${props.user.details.zip}`}
+          </p>
+
+
+          <Link to={userRoutes.subscriptions.path}>
+            <Button theme="primary">Subscriptions</Button>
+          </Link>
+
+          <Link to={userRoutes.edit.path}>
+            <Button theme="primary" style={{ marginLeft: "1em" }}>
+              Edit Profile
+            </Button>
+          </Link>
+
+          <Button
+            theme="secondary"
+            onClick={props.logout}
+            style={{ marginLeft: "1em" }}
+          >
+            Logout
           </Button>
-        </Link>
+        </div>
 
-        <Button
-          theme="secondary"
-          onClick={props.logout}
-          style={{ marginLeft: "1em" }}
-        >
-          Logout
-        </Button>
       </GridCell>
     </Grid>
   </div>
