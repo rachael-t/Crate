@@ -18,7 +18,10 @@ module.exports = function(sequelize, DataTypes) {
           let subscriptionId = subscription.dataValues.id;
           let date = new Date(new Date().getTime()+(5*24*60*60*1000))
 
-          models.Shipment.create({ userId: user, subscriptionId: subscriptionId, deliveryDate: date })
+          for(let i = 1; i < 13; i++){
+            models.Shipment.create({ userId: user, subscriptionId: subscriptionId, deliveryDate: date })
+            date = new Date(new Date().getTime()+(30*i*24*60*60*1000))
+          }
         }
       }
     }
