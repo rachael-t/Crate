@@ -3,7 +3,6 @@ import { GraphQLInt, GraphQLString, GraphQLList } from 'graphql'
 
 // App Imports
 import ShipmentType from './types'
-import SubscriptionType from '../subscription/types'
 import { getByUser } from './resolvers'
 
 // Shipments All
