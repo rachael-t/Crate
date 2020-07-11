@@ -4,6 +4,7 @@ import Signup from '../../modules/user/Signup'
 import Profile from '../../modules/user/Profile'
 import Subscriptions from '../../modules/user/Subscriptions'
 import EditProfile from '../../modules/user/EditProfile'
+import Products from '../../modules/user/Products'
 
 // User routes
 export default {
@@ -32,6 +33,12 @@ export default {
   edit: {
     path: '/user/edit',
     component: EditProfile,
+    auth: true
+  },
+
+  products: {
+    path: '/user/products',
+    component: Products,
     auth: true
   }
 }
