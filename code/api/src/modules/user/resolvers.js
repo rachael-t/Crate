@@ -59,9 +59,10 @@ export async function login(parentValue, { email, password }) {
 }
 
 // Update user info
-export async function update(parentValue, { id, image, description, address, state, city, zip, email }) {
+export async function update(parentValue, { id, name, image, description, address, state, city, zip, email }) {
   await models.User.update(
     {
+      name,
       image,
       description,
       address,
