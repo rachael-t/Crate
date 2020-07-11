@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.hasMany(models.Subscription)
-    User.hasMany(models.Shipment)
+    User.hasMany(models.Shipment, { onDelete: 'cascade', hooks: true })
   }
 
   return User
