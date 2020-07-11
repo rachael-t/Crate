@@ -113,23 +113,33 @@ class EditProfile extends Component {
         <Grid>
           <GridCell
             justifyCenter={true}
-            style={{ padding: "2em", textAlign: "center" }}
+            style={{ padding: "2em", textAlign: "center", display: "flex", justifyContent: "center"}}
           >
             <ImageTile
               width={300}
               height={530}
-              shadow={level1}
               image={routeImage + this.state.user.image}
+              style={{backgroundRepeat:"no-repeat", display: "flex", alignSelf: "center"}}
             />
 
-            <H4 style={{ marginBottom: "0.5em" }}>
-              {this.props.user.details.name}
-            </H4>
-
-            <form>
+            
+            <form style={{marginLeft: "3em", width: "50%"}}>
+              {/* USER NAME DISPLAY */}
+              <H4 style={{ marginBottom: ".5em" }}>
+                {this.props.user.details.name}
+              </H4>
+              <hr style={{borderBottom: ".7px solid #ce9ffc"}}/>
               {/* Image Upload Input */}
-              <input type="file" onChange={this.onUpload}></input>
+              <label for="image">Upload Your Profile Photo:</label>
+              <br/>
+              <br/>
+              <input name="image" type="file" onChange={this.onUpload}></input>
+              <br/>
+              <br/>
+              <hr style={{borderBottom: ".7px solid #ce9ffc"}}/>
               {/* User Email Input*/}
+              <label for="email">Update your Email Address:</label>
+              <br/>
               <Input
                 type="text"
                 required="required"
@@ -139,16 +149,24 @@ class EditProfile extends Component {
                 value={this.state.user.email}
                 onChange={this.onChange}
               />
+              <br/>
+              <hr style={{borderBottom: ".7px solid #ce9ffc"}}/>
               {/* User Description Input Area */}
-              <label for="description">Tell Us About Yourself:</label>
-              <Textarea
-                placeholder="Description"
-                required="required"
-                name="description"
-                value={this.state.user.description}
-                onChange={this.onChange}
-                style={{ marginTop: "1em" }}
-              />
+              <div style={{ display: "flex", "flex-direction": "column", "justify-content": "center"}}>
+                <label for="description">Tell Us About Yourself:</label>
+                <br/>
+                <Textarea
+                  placeholder="Description"
+                  required="required"
+                  name="description"
+                  value={this.state.user.description}
+                  onChange={this.onChange}
+                  style={{ marginTop: "1em", height: "6em", width: "80%" }}
+                />
+                <br/>
+              </div>
+              <hr style={{borderBottom: ".7px solid #ce9ffc"}}/>
+
             {/* Shipping Address Input Fields */}
               <label for="shipping">Enter Your Shipping Address:</label>
               <Input
@@ -187,6 +205,8 @@ class EditProfile extends Component {
                 value={this.state.user.zip}
                 onChange={this.onChange}
               />
+              <br/>
+              <hr style={{borderBottom: ".7px solid #ce9ffc"}}/>
               <Button
                 onClick={this.onSubmit}
                 theme="primary"
