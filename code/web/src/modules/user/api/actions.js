@@ -124,7 +124,7 @@ export function updateUserProfile(user) {
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
       variables: { 
-        id: user.id, 
+        id: user.id,
         image: user.image, 
         description: user.description, 
         email: user.email, 
