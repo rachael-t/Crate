@@ -6,12 +6,16 @@ module.exports = {
       {
         productId: 1,
         shipmentId: 1,
-        returned: false
+        returned: false,
+        createdAt: '1/1/2001',
+        updatedAt: '2/3/2005'
       },
       {
         productId: 2,
         shipmentId: 1,
-        returned: true
+        returned: true,
+        createdAt: '1/1/2001',
+        updatedAt: '2/3/2005'
       }
     ])
   },
