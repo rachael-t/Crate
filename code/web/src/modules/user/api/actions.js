@@ -123,16 +123,34 @@ export function updateUserProfile(user) {
   return dispatch => {
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
-      variables: { 
+      variables: {
         id: user.id,
-        image: user.image, 
-        description: user.description, 
-        email: user.email, 
-        address: user.address, 
-        city: user.city, 
-        state: user.state, 
+        image: user.image,
+        description: user.description,
+        email: user.email,
+        address: user.address,
+        city: user.city,
+        state: user.state,
         zip: user.zip },
       fields: ['id']
+    }))
+      .then(response => {
+        if(response.status === 200) {
+          dispatch({
+            type: SET_USER,
+            user
+          })
+        }
+      })
+  }
+}
+
+// Get Shipment Date Data 
+export function getShipmentData(user) {
+  return dispatch => {
+    return axios.post(routeApi, query({
+      operation: 'shipments',
+      fields: [userId, subscriptionId, deliveryDate]
     }))
       .then(response => {
         if(response.status === 200) {
