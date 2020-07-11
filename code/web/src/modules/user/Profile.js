@@ -89,7 +89,7 @@ const Profile = (props) => (
           </Link>
         </div>
 
-        <div style={{backgroundColor: "green"}}>
+        <div>
           <H4 style={{ marginBottom: '1em', textAlign: 'center' }}>
             Next Delivery Scheduled:
           </H4>
@@ -109,7 +109,8 @@ Profile.propTypes = {
 // Component State
 function profileState(state) {
   return {
-    user: state.user
+    user: state.user,
+    shipments: state.shipments
   }
 }
 

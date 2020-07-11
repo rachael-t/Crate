@@ -1,6 +1,6 @@
 // Imports
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
@@ -59,7 +59,6 @@ class EditProfile extends Component {
     this.props.upload(data)
       .then(response => {
         if (response.status === 200) {
-          // this.props.messageShow('File uploaded successfully.')
 
           let user = {...this.state.user}
           user.image = `/images/uploads/${ response.data.file }`
@@ -68,12 +67,9 @@ class EditProfile extends Component {
             user
           })
         } else {
-          // this.props.messageShow('Please try again.')
         }
       })
-      // Need to add in messageShow for error once that's figured out
       .catch(error => console.log(error))
-
   }
 
   onChange = (e) => {
@@ -122,7 +118,7 @@ class EditProfile extends Component {
               style={{backgroundRepeat:"no-repeat", display: "flex", alignSelf: "center"}}
             />
 
-            
+
             <form style={{marginLeft: "3em", width: "50%"}}>
               {/* USER NAME DISPLAY */}
               <H4 style={{ marginBottom: ".5em" }}>
@@ -223,18 +219,17 @@ class EditProfile extends Component {
 }
 
 // Component Properties
-// EditProfile.propTypes = {
-//   user: PropTypes.object.isRequired,
-//   logout: PropTypes.func.isRequired
-// }
+EditProfile.propTypes = {
+  user: PropTypes.object.isRequired,
+  upload: PropTypes.func.isRequired,
+  updateUserProfile: PropTypes.func.isRequired
+}
 
 // Component State
-// This function will need to be renamed
-function profileState(state) {
+function editProfileState(state) {
   return {
     user: state.user
   }
 }
 
-// Update the function name and any action creators that are imported/used
-export default withRouter(connect(profileState, { upload, updateUserProfile })(EditProfile))
+export default withRouter(connect(editProfileState, { upload, updateUserProfile })(EditProfile))
