@@ -3,20 +3,17 @@ import models from '../../setup/models'
 import params from '../../config/params'
 
 // Get all shipments
-export async function getByUser(parentValue, { }, { auth }) {
-  if (auth.user && auth.user.id > 0) {
+export async function getByUser(parentValue, { userId }) {
     return await models.Shipment.findAll({
       where: {
-        userId: auth.user.id
+        userId: userId
       },
       include: [
         { model: models.Subscription, as: 'subscription' },
+        { model: models.Product, as: 'products' }
       ]
     })
-  } else {
-    throw new Error('Please login to view your shipments.')
-  }
-}
+  } 
 
 // Create shipment
 export async function create(parentValue, { subscriptionId }, { auth }) {
