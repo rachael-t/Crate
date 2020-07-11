@@ -34,7 +34,7 @@ const Profile = (props) => (
     </Grid>
 
     <Grid>
-      <GridCell 
+      <GridCell
         justifyCenter={true}
         style={{ padding: "2em", textAlign: "center", display: "flex", justifyContent: "center"}}
       >
@@ -78,6 +78,21 @@ const Profile = (props) => (
           >
             Logout
           </Button>
+
+          <Link to={userRoutes.products.path}>
+            <Button
+              theme="primary"
+              style={{ marginLeft: "1em" }}
+            >
+            View my products
+            </Button>
+          </Link>
+        </div>
+
+        <div style={{backgroundColor: "green"}}>
+          <H4 style={{ marginBottom: '1em', textAlign: 'center' }}>
+            Next Delivery Scheduled:
+          </H4>
         </div>
 
       </GridCell>
