@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
     userId: {
       type: DataTypes.INTEGER
     },
-    crateId: {
+    subscriptionId: {
       type: DataTypes.INTEGER
     },
     deliveryDate: {
@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
 
   Shipment.associate = function(models) {
     Shipment.belongsTo(models.User)
-    Shipment.belongsTo(models.Crate)
+    Shipment.belongsTo(models.Subscription)
     Shipment.belongsToMany(models.Product, { through: models.ProductShipment })
   }
 
