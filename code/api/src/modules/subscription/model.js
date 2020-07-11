@@ -1,4 +1,6 @@
 'use strict'
+import { create } from '../shipments/resolvers'
+import models from '../../setup/models'
 
 // Subscription
 module.exports = function(sequelize, DataTypes) {
@@ -11,8 +13,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
       hooks: {
-        beforeUpdate: function() {
-          console.log('this beforeUdpate hook worked');
+        afterCreate: async (subscription) => {
+          let user = subscription.dataValues.userId;
+          let subscriptionId = subscription.dataValues.id;
+          let date = new Date(new Date().getTime()+(5*24*60*60*1000))
+
+          models.Shipment.create({ userId: user, subscriptionId: subscriptionId, deliveryDate: date })
         }
       }
     }
