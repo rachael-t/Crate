@@ -2,9 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    // const subscrtions = await queryInterface.sequelize.query(
-    //   `SELECT id from COURSES;`
-    // );
     return queryInterface.bulkInsert('subscriptions', [
       {
         userId: 1,
