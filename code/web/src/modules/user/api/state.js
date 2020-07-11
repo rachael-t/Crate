@@ -1,6 +1,6 @@
 // App Imports
 import { isEmpty } from '../../../setup/helpers'
-import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT } from './actions'
+import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT, SET_DELIVERY_DATE } from './actions'
 
 // Initial State
 export const userInitialState = {
@@ -41,6 +41,12 @@ export default (state = userInitialState, action) => {
         isLoading: false,
         isAuthenticated: false,
         details: null
+      }
+
+    case SET_DELIVERY_DATE:
+      return {
+        ...state,
+        shipments: action.shipments
       }
 
     default:

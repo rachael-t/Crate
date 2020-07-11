@@ -44,7 +44,7 @@ describe("Profile", () => {
         const userName = getByText("Celine Dion");
         const userDescription = getByText("Recently stepped up my fashion game and love showing off dramatic outfits to match my music");
         const userEmail = getByText("heartgoeson@crate.com");
-        const userAddress = getByText("123 Crate St. Boulder, CO 80302", {exact: false})
+        const userAddress = getByText("123 Crate St.", {exact: false});
 
         expect(profileHeader).toBeInTheDocument();
         expect(userName).toBeInTheDocument();
@@ -67,15 +67,15 @@ describe("Profile", () => {
 
     it("should route the user to the Subscriptions page when the corresponding button is clicked", () => {
         const { getByRole, history } = renderWrapper();
-    
+
         const subscriptionsLink = getByRole("link", { name: "Subscriptions" });
         fireEvent.click(subscriptionsLink);
         expect(history.location.pathname).toBe("/user/subscriptions");
     })
-    
+
     it("should route the user to the EditProfile page when the corresponding button is clicked", () => {
         const { getByRole, history } = renderWrapper();
-    
+
         const editProfileLink = getByRole("link", { name: "Edit Profile" });
         fireEvent.click(editProfileLink);
         expect(history.location.pathname).toBe("/user/edit");
@@ -85,4 +85,3 @@ describe("Profile", () => {
     // it("should logout a user when the logout button is clicked", () => {})
 
 })
-

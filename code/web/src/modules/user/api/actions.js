@@ -11,6 +11,7 @@ export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const LOGIN_RESPONSE = 'AUTH/LOGIN_RESPONSE'
 export const SET_USER = 'AUTH/SET_USER'
 export const LOGOUT = 'AUTH/LOGOUT'
+export const SET_DELIVERY_DATE = 'AUTH/SET_DELIVERY_DATE'
 
 // Actions
 
@@ -48,7 +49,6 @@ export function login(userCredentials, isLoading = true) {
           const user = response.data.data.userLogin.user
 
           dispatch(setUser(token, user))
-
           loginSetUserLocalStorageAndCookie(token, user)
         }
 
@@ -145,20 +145,26 @@ export function updateUserProfile(user) {
   }
 }
 
-// Get Shipment Date Data 
-export function getShipmentData(user) {
+// Get Shipment Date
+// this was our attempt at making an action to request our shipments data from the backend
+// ended up with an unresolveable 404 error
+export function getShipmentDate(userID) {
   return dispatch => {
     return axios.post(routeApi, query({
       operation: 'shipments',
-      fields: [userId, subscriptionId, deliveryDate]
+      variables: {
+        userId: userID,
+      },
+      fields:['subscriptionId, deliveryDate']
     }))
-      .then(response => {
-        if(response.status === 200) {
-          dispatch({
-            type: SET_USER,
-            user
-          })
-        }
-      })
+      // .then(response => {
+      //   if(response.status === 200) {
+      //     dispatch({
+      //       type: SET_DELIVERY_DATE,
+      //       shipments: response
+      //     })
+      //   }
+      // })
+      .then(response => console.log('beans', response))
   }
 }
