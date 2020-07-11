@@ -3,10 +3,17 @@ import { GraphQLInt, GraphQLString, GraphQLList } from 'graphql'
 
 // App Imports
 import ShipmentType from './types'
-import { getAll } from './resolvers'
+import SubscriptionType from '../subscription/types'
+import { getByUser } from './resolvers'
 
 // Shipments All
 export const shipments = {
   type: new GraphQLList(ShipmentType),
-  resolve: getAll
+  args: {
+    userId: {
+      name: 'userId',
+      type: GraphQLInt
+    }
+  },
+  resolve: getByUser
 }
