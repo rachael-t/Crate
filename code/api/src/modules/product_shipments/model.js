@@ -2,7 +2,7 @@
 
 // Products for all Shipments
 module.exports = function (sequelize, DataTypes) {
-  let ProductShipment = sequelize.define('productShipments', {
+  let ProductShipment = sequelize.define('product_shipments', {
     productId: {
       type: DataTypes.INTEGER
     },
